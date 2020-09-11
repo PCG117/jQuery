@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>test1</title>
+</head>
+<body>
+	<ul id="ul">
+     <li id="li-1">1</li>
+     <li id="li-2">2</li>
+     <li id="li-3">3</li>
+     <li id="li-4">4</li>
+     <li id="li-5">5</li>
+</ul>
+</body>
+<script src='js/jQuery.js'></script>
+<script>
+// 给ul添加监听器
+document.getElementById("ul").addEventListener("click",function(e) {
+    // e.target是被点击的元素!
+    // 筛选触发事件的子元素如果是li执行的事件
+     if(e.target && e.target.nodeName == "LI") {
+         // 获取到具体事件触发的li，输出其id7
+          console.log("List item ",e.target.id.replace("post-")," was clicked!");
+     }
+ }); 
+ 
+$(function(){
+	$('li').on('click',function(e){
+		console.log(e.target);
+		console.log(this);
+		$('#temp').html('clicked:'+e.target.nodeName);
+		$(e.target).css('color','#ff3300')
+	})
+})
+</script>
+</html>

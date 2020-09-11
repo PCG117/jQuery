@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>5.事件自动触发-3</title>
+</head>
+<body>
+    <a href="http://www.chenniantao.com">
+        去学习
+    </a>
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script>
+    $('body').on('click',function(){
+        console.log('body click')
+    })
+    $('a').on('click', function () {
+        console.log('a click');
+    })
+    $('a').trigger('click') 
+</script>
+</html>

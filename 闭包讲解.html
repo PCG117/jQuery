@@ -1,0 +1,54 @@
+
+闭包讲解：https://zhuanlan.zhihu.com/p/50818197
+
+1: let a = 3
+2: function addTwo(x) {
+3:   let ret = x + 2
+4:   return ret
+5:}
+6: let b = addTwo(a)
+7: console.log(b)
+
+1: let val1 = 2
+2: function multiplyThis(n) {
+3:   let ret = n * val1
+4:   return ret
+5:}
+6: let multiplied = multiplyThis(6)
+7: console.log('example of scope:', multiplied)
+
+ 1: let val = 7
+ 2: function createAdder() {
+ 3:  function addNumbers(a, b) {
+ 4:   let ret = a + b
+ 5:   return ret
+ 6:  }
+ 7: return addNumbers
+ 8:}
+ 9:  let adder = createAdder()
+ 10: let sum = adder(val, 8)
+ 11: console.log('example of function returning a function: ', sum)
+
+ 1: function createCounter() {
+2:  let counter = 0
+3:  const myFunction = function () {
+4:    counter = counter + 1
+5:    return counter
+6:  }
+7:  return myFunction
+8: }
+9:  const increment = createCounter()
+10: const c1 = increment()
+11: const c2 = increment()
+12: const c3 = increment()
+13: console.log('example increment', c1, c2, c3)
+
+let c = 4
+function addX(x) {
+  return function (n) {
+    return n + x
+  }
+}
+const addThree = addX(3)
+let d = addThree(c)
+console.log('example partial application', d)

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>1.jQuery核心函数</title>
+</head>
+<body>
+	<div>1</div>
+	<div>2</div>
+	<div>3</div>
+	<div class="box">box</div>
+</body>
+<script src='js/jQuery.js'></script>
+<script>
+var res = $(function(){
+	console.log($('.box'))
+})
+var res1=$(function(){
+	console.log($('div'))
+})
+var res2=$(function(){
+	console.log($([1,2,3,4]))
+})
+var res3=$(0)
+console.log(res3)
+
+var $p=$('.box');
+$p.css('color','green');
+
+var $div=$('div')
+var div=$div[1]
+div.style.color='red'
+
+var $div=$('div')
+var div=$div.get(2)
+div.style.color='skyblue'
+
+</script>	
+</html>
