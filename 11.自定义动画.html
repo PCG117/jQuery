@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>11.自定义动画</title>
+	<style>
+		div{
+			width: 100px;
+			height: 100px;
+			margin-top: 20px;
+			background-color: red;
+		}
+	</style>
+</head>
+<body>
+	<button>开始动画</button>
+	<div></div>
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script>
+  $("button").on('click',function(){
+        $("div").animate({
+        	left:'+=200',
+            width:"+=300",
+            height:"-=60"
+        },1000,function(){
+            console.log("animate ended");
+        });
+    });
+</script>
+</html>

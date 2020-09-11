@@ -8,12 +8,13 @@
 	
 </body>
 <script>
-var foo = 1;
-function bar (foo) {
-    console.log(foo);
-    foo = 234;
+foo();
+var foo = function foo() {
+    console.log('foo1');
 }
-bar(123);
-console.log(foo);
+function foo() {
+    console.log('foo2');
+}
+foo();
 </script>
 </html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>15.删除节点</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        div{
+            width: 100px;
+            height: 100px;
+            border:1px solid #f21;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <button>remove删除节点</button>
+    <button>empty删除节点</button>
+    <button>detach删除节点</button>
+    <div>1</div>
+    <div>2</div>
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script>
+$('div').on('click',function(){
+    console.log('click')
+})
+    $('button').eq(0).on('click',function(){
+        var $elems = $('div').remove()
+         $('body').append($elems)
+    })
+    $('button').eq(1).on('click', function () {
+        var $elems = $('div').empty()
+    })
+    $('button').eq(2).on('click', function () {
+        var $elems = $('div').detach()
+         $('body').append($elems)
+    })            
+</script>    
+</html>
