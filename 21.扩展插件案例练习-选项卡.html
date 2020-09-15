@@ -1,0 +1,96 @@
+<!--
+ * @Author: your name
+ * @Date: 2020-09-12 09:40:50
+ * @LastEditTime: 2020-09-12 12:48:45
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \jQuery\21.扩展插件案例练习.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>选项卡</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .wrap{
+            width: 960px;
+            margin:50px auto;
+        }
+        li{
+            list-style: none;
+        }
+        .tabs{
+            display: flex;
+            flex-direction: row;
+            border-bottom: 1px solid #F9002B;
+            background-color: #ccc;
+        }
+        .tabs li{
+            cursor: pointer;
+            width: 100px;
+            line-height: 40px;
+            text-align: center;
+        }
+        .tabs li:hover{
+            color:#F9002B;
+        }
+        .tabs li.active{
+            color: #fff;
+            background-color: #F9002B;
+        }
+        .contents li{
+            display: none;
+            line-height: 400px;
+            text-align: center;
+            font-size: 60px;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <ul class="tabs">
+            <li class="active">商品介绍</li>
+            <li>规格与包装</li>
+            <li>售后保障</li>
+            <li>商品评价</li>
+        </ul>
+        <ul class="contents">
+            <li style="display: block;">商品介绍的内容</li>
+            <li>规格与包装的内容</li>
+            <li>售后保障的内容</li>
+            <li>商品评价的内容</li>
+        </ul>
+    </div>   
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script>
+   $.fn.extend({
+       tab:function(options){
+            var DEFAULTS = {
+               tabsSelector: '.tabs li',
+               contentsSelector: '.contents li',
+               activeClass:'active',
+               eventType:'click'
+            }
+            options = $.extend({}, DEFAULTS, options);
+            return this.each(function(){
+                var $elem = $(this)
+                var $tabs = $elem.find(options.tabsSelector)
+                var $contents  = $elem.find(options.contentsSelector)
+                $tabs.on(options.eventType,function(){
+                    $(this).addClass(options.activeClass).siblings().removeClass(options.activeClass)
+                    var index = $(this).index()
+                    $contents.hide().eq(index).show()
+                })
+            })
+       }
+   })
+   $('.wrap').tab({
+       eventType:'mouseenter'
+   })
+</script>
+</html>

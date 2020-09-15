@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>jqXHR</title>
+</head>
+<body>
+	<button>get请求</button>
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script>
+$('button').eq(0).on('click',function(){
+	var jqXHR=$.ajax({
+		url:'/getData',
+		data:{
+			name:'peter',
+			age:18
+		}
+	})
+})
+jqXHR.done(function(data,textStatus,jqXHR){
+	console.log('---done---');
+	console.log(data);
+	console.log(textStatus);
+	console.log(jqXHR);
+})
+</script>
+</html>

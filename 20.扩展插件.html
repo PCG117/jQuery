@@ -1,0 +1,33 @@
+<!--
+ * @Author: your name
+ * @Date: 2020-09-12 09:46:11
+ * @LastEditTime: 2020-09-12 10:06:06
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \jQuery\20.扩展插件.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>20.扩展插件</title>
+</head>
+<body>
+    <button>变色</button>
+    <div>1</div>
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script>
+    $.fn.setColor = function(options){
+    var DEFAULTS = {color:'red'}
+    var options = $.extend({},DEFAULTS,options);
+    return this.each(function(){
+        this.style.color = options.color;
+    });
+    $('button').click(function(){
+        $.setColor()
+    });
+}
+</script>
+</html>
